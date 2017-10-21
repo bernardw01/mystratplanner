@@ -18,7 +18,7 @@
             font-family: 'Raleway', sans-serif;
             font-weight: 100;
             height: 100vh;
-            background-image: url("./assets/images/Orlando.JPG");
+            background-image: url("./assets/images/Orlando.jpg");
             margin: 0;
         }
 

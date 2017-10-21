@@ -15,10 +15,10 @@ class CreateTableReviews extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('review_period_start');
-            $table->date('review_period_end');
-            $table->integer('user_id');
-            $table->integer('reviewer_id');
+            $table->date('review_period_start')->nullable();
+            $table->date('review_period_end')->nullable();
+            $table->integer('user_id')->nullable();
+            $table->integer('reviewer_id')->nullable();
             $table->integer('rating')->nullable();
             $table->longText('review_text')->nullable();
             $table->string('review_type')->nullable();

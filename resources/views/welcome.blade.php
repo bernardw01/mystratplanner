@@ -18,8 +18,12 @@
             font-family: 'Raleway', sans-serif;
             font-weight: 100;
             height: 100vh;
-            background-image: url("assets/images/Orlando.JPG");
+            background-image: url("./assets/images/Orlando.JPG");
             margin: 0;
+        }
+
+        .logo {
+            font-size: 100px;
         }
 
         .full-height {
@@ -99,8 +103,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="titleBanner">
-                        <span class="titleText">MyStratPlanner</span>
-                        <span>
+                        <span class="titleText">MyStratPlanner</span><br/>
+                        <span class="logo">
                             <i class="fa fa-handshake-o fa-6 titleText" aria-hidden="true"></i>
                         </span>
                     </div>

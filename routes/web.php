@@ -19,4 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::view('/myprofile', 'myprofile');
+Route::get('/myprofile', function() {
+    $auth_level =  Auth::user()->auth_level;
+    return view('myprofile', compact($auth_level));
+})->name('myprofile');

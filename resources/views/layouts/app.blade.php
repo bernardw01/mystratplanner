@@ -11,10 +11,12 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="assets/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link href=" {{asset('assets/font-awesome-4.7.0/css/font-awesome.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://bootswatch.com/cerulean/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/MDBFree/css/mdb.css">
+    <link rel="stylesheet" href="{{ asset('assets/MDBFree/css/mdb.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 </head>
 <body>
 <div id="app">
@@ -33,17 +35,14 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <i class="fa fa-handshake-o fa-6 titleText" aria-hidden="true"></i> {{ config('app.name', 'Laravel') }}
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="">My Dashboard</a></li>
-                    <li><a href="{{route('myprofile')}}">My Profile</a></li>
-                    <li><a href="">My Team Dashboard</a></li>
-                    <li><a href="">Admin Panel</a></li>
+                    <li><a href="{{route('home')}}">Home</a></li>
 
                 </ul>
 
@@ -80,11 +79,20 @@
             </div>
         </div>
     </nav>
-
-    @yield('content')
+    <div class="container">
+        @if (Gate::forUser(Auth::user())->allows('access-user'))
+            <div class="col-md-2">
+                @include('layouts.sidebar')
+            </div>
+        @endif
+        <div class="col-md-10">
+            @yield('content')
+        </div>
+    </div>
 </div>
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('assets/javascript/app.js') }}"></script>
 </body>
 </html>

@@ -25,6 +25,7 @@ class CreateTableReviews extends Migration
             $table->string('review_status')->nullable();
             $table->index('user_id');
             $table->index('reviewer_id');
+            $table->string('last_user')->nullable();
             $table->timestamps();
         });
     }

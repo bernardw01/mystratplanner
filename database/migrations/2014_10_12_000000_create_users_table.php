@@ -32,6 +32,7 @@ class CreateUsersTable extends Migration
             $table->integer('current_manager_id')->nullable();
             $table->integer('team_id')->nullable();
             $table->integer('auth_level')->nullable();
+            $table->string('last_user')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->index('current_manager_id');

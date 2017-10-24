@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \Illuminate\Auth\AuthManager;
+use \App\Goal;
+use \App\Review;
 
 class HomeController extends Controller
 {
+
+    protected $user;
+
     /**
      * Create a new controller instance.
      *
@@ -14,6 +20,8 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+
+
     }
 
     /**
@@ -21,8 +29,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        //dd($request->user()->id);
+        //dd(Goal::where('user_id', $request->user()->id));
+        $goals = Goal::where('user_id', $request->user()->id)->get();
+        $reviews = Review::where('user_id', $request->user()->id)->get();
+        //dd($goals);
+        return view('home', compact('goals','reviews'));
     }
 }

@@ -19,6 +19,7 @@ class CreateCommentsTable extends Migration
             $table->integer('user_id')->nullable();
             $table->integer('goal_id')->nullable();
             $table->integer('team_id')->nullable();
+            $table->string('last_user')->nullable();
             $table->timestamps();
         });
     }

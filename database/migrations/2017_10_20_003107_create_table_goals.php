@@ -21,6 +21,7 @@ class CreateTableGoals extends Migration
             $table->integer('user_id')->nullable();
             $table->string('goal_status')->nullable();
             $table->date('due_date')->nullable();
+            $table->string('last_user')->nullable();
             $table->timestamps();
             $table->index('team_id');
             $table->index('user_id');

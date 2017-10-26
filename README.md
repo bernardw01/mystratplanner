@@ -42,6 +42,7 @@ with the Client side.
 * User activity history using Laravel Events
 * Google Analytics
 * Comments across entities
+* Google DataStudio Embedded charts
 
 
 ## High-level Work Breakdown Structure

@@ -12,4 +12,4 @@ Objectives | High level goal for a team | Belong to teams
 Comments| Comments about any entity | Belong to <Entity Name>
 Tasks | Specific actions for a user | Belong to users, Are related to Objectives
 
-[Return to StratPlanner Home](../../../../work/stratplanner/README.md)
+[Return to StratPlanner Home](../../../../work/mystratplanner/README.md)

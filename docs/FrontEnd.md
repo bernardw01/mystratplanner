@@ -7,4 +7,4 @@ Screen Name | Purpose
 [My Team](my_team.md) | Page for people who manage others to view the status of their open items
 [Team Admin](team_admin.md)  | Page for administrators to manage the team profiles and objectives
 
-[Return to StratPlanner Home](../../../../work/stratplanner/README.md)
+[Return to StratPlanner Home](../../../../work/mystratplanner/README.md)

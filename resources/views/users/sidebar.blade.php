@@ -17,37 +17,26 @@
         <div id="goals" class="tab-pane fade in active">
             <div class="navLinks"><a href="/goals/create/{{$user->id}}"><i class="fa fa-plus hdrIcon" aria-hidden="true"></i>Add
                     New Goal</a></div>
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                        <th>ID#</th>
-                        <th>Title</th>
-                        <th>Status</th>
-                        <th>Due Date</th>
-                        <th>User ID</th>
 
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($goals as $goal)
-                        <tr>
-                            <td><a href="/goals/{{$goal->id}}/edit"><i class="fa fa-edit"
-                                                                       aria-hidden="true"></i></a></td>
-                            <td><a href="/goals/{{$goal->id}}/delete"><i class="fa fa-trash-o"
-                                                                         aria-hidden="true"></i></a></td>
-                            <td>{{$goal->id}}</td>
-                            <td>{{$goal->goal_title}}</td>
-                            <td>{{$goal->goal_status}}</td>
-                            <td>{{$goal->due_date}}</td>
-                            <td>{{$goal->user_id}}</td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-            </div>
+        @foreach($goals as $goal)
+            <!-- Right-aligned -->
+                <div class="media commentMediaObject">
+                    <div class="media-left rightBoarder">
+                        <a href="/goals/{{$goal->id}}/edit"><i class="fa fa-edit"
+                                                                    aria-hidden="true"></i></a>
+                        <a href="/goals/{{$goal->id}}/delete"><i class="fa fa-trash-o"
+                                                                      aria-hidden="true"></i></a>
+                    </div>
+                    <div class="media-body">
+                        <span class="media-heading">{{$goal->goal_title}}</span>
+                        <span class="userHeading">updated by {{$goal->last_user}}</span>
+                        <p class="commentBody">Due Date: {{$goal->due_date}} - Status: {{$goal->goal_status}}  </p>
+                    </div>
+
+                </div>
+            @endforeach
+
+
         </div>
 
         <div id="reviews" class="tab-pane fade">
@@ -58,9 +47,9 @@
             <!-- Right-aligned -->
                 <div class="media commentMediaObject">
                     <div class="media-left rightBoarder">
-                        <a href="/comments/{{$review->id}}/edit"><i class="fa fa-edit"
+                        <a href="/reviews/{{$review->id}}/edit"><i class="fa fa-edit"
                                                                     aria-hidden="true"></i></a>
-                        <a href="/comments/{{$review->id}}/delete"><i class="fa fa-trash-o"
+                        <a href="/rewviews/{{$review->id}}/delete"><i class="fa fa-trash-o"
                                                                       aria-hidden="true"></i></a>
                     </div>
                     <div class="media-body">

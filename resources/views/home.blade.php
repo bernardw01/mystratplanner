@@ -20,7 +20,7 @@
 
             <div class="tab-content">
                 <div id="goals" class="tab-pane fade in active">
-                    <div class="navLinks"><a href="/goals/create"><i class="fa fa-plus hdrIcon" aria-hidden="true"></i>Add
+                    <div class="navLinks"><a href="/goals/create/{{Auth::user()->id}}"><i class="fa fa-plus hdrIcon" aria-hidden="true"></i>Add
                             New Goal</a></div>
                     <div class="table-responsive">
                         <table class="table">
@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div id="reviews" class="tab-pane fade">
-                    <div class="navLinks"><a href="/reviews/create"><i class="fa fa-plus hdrIcon"
+                    <div class="navLinks"><a href="/reviews/create/{{Auth::user()->id}}"><i class="fa fa-plus hdrIcon"
                                                                        aria-hidden="true"></i>Add New Review</a></div>
                     <div class="table-responsive">
                         <table class="table">
@@ -99,7 +99,7 @@
                 </div>
                 <div id="comments" class="tab-pane fade">
                     <div class="navLinks">
-                        <a href="/comments/create">
+                        <a href="/comments/create/{{Auth::user()->id}}">
                             <i class="fa fa-plus hdrIcon" aria-hidden="true"></i>Add New Comment</a>
                     </div>
                 @foreach($comments as $comment)

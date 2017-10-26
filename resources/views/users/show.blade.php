@@ -69,22 +69,22 @@
                         <label class="col-md-4 control-label" for="auth_level">Auth Level</label>
                         <div class="col-md-4">
                             <select id="auth_level" name="auth_level" class="form-control">
-                                <option @if ($user->auth_level = 0)
+                                <option @if ($user->auth_level == 0)
                                         selected
                                         @endif
-                                        value="0">Adminvalue="0">Guest
+                                        value="0">Guest
                                 </option>
-                                <option @if ($user->auth_level = 1)
+                                <option @if ($user->auth_level == 1)
                                         selected
                                         @endif
-                                        value="1">Adminvalue="1">User
+                                        value="1">User
                                 </option>
-                                <option @if ($user->auth_level = 2)
+                                <option @if ($user->auth_level == 2)
                                         selected
                                         @endif
-                                        value="2">Adminvalue="2">Manager
+                                        value="2">Manager
                                 </option>
-                                <option @if ($user->auth_level = 3)
+                                <option @if ($user->auth_level == 3)
                                         selected
                                         @endif
                                         value="3">Admin

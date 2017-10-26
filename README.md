@@ -17,19 +17,18 @@ the work of their employees, and provide regular feedback on their completed wor
 This solution is built utilizing the following technologies.
 
 ### Server Side
-* Node JS
-* Express
+* PHP
+* Laravel
 * MySQL
-* Self Developed ORM
+* Eloquent ORM
 
 Click [here](./docs/Entities.md) to to see an overview of data model and various components associated
 with the server side.
 
 ### Client Side
 * MomentJS
-* Passport JS
 * Bootstrap 3
-* Vue JS
+* Blade templating engine
 * jQuery
 * MDBFree
 * FontAwesome
@@ -37,6 +36,13 @@ with the server side.
 
 Click [here](./docs/FrontEnd.md) to to see an overview of data model and various components associated
 with the Client side.
+
+### Upcoming Work
+* Additional Relationships to support functionality
+* User activity history using Laravel Events
+* Google Analytics
+* Comments across entities
+
 
 ## High-level Work Breakdown Structure
 

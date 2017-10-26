@@ -55,6 +55,9 @@ Route::get('/comments/{comment}/edit', 'CommentController@edit');
 Route::post('/comments/{comment}', 'CommentController@update');
 Route::post('/comments', 'CommentController@store');
 
+//Team Routes
+Route::get('/teams/create/{user}', 'TeamController@create');
+Route::post('/teams', 'TeamController@store');
 
 //  resoure/create for a new entity
 // /resource to view all records for a resource

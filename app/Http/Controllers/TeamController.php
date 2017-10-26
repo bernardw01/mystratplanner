@@ -3,28 +3,39 @@
 namespace App\Http\Controllers;
 
 use App\Team;
+use \App\Goal;
+use \App\Review;
+use \App\Comment;
+
 use Illuminate\Http\Request;
 
 class TeamController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
-    }
+        //dd($request->user()->id);
+        //dd(Goal::where('user_id', $request->user()->id));
+        $goals = Goal::where('team_id', $id)->get();
+        $reviews = Review::where('team_id', $id)->get();
+        $comments = Comment::where('team_id', $id)->get();
 
+        //dd($goals);
+        return view('teams.index', compact('goals','reviews', 'comments'));
+    }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request, $id)
     {
         //
+        return view('teams.create', compact('id'));
     }
 
     /**
@@ -36,6 +47,18 @@ class TeamController extends Controller
     public function store(Request $request)
     {
         //
+        //dd(request()->all());
+
+        $team = new Team;
+
+        $team->team_name = request('team_name');
+        $team->team_lead_id = request('team_lead_id');
+        $team->last_user = request('user_email');
+
+
+        $team->save();
+
+        return redirect('home');
     }
 
     /**

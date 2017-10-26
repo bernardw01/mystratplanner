@@ -10,12 +10,14 @@
             </legend>
 
             <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#goals"><i class="fa fa-comments " aria-hidden="true"></i>
+                <li class="active"><a data-toggle="tab" href="#goals"><i class="fa fa-tasks " aria-hidden="true"></i>
                         Goals</a></li>
                 <li><a data-toggle="tab" href="#reviews"><i class="fa fa-user-circle " aria-hidden="true"></i>
                         Reviews</a></li>
                 <li><a data-toggle="tab" href="#comments"><i class="fa fa-comments " aria-hidden="true"></i>
                         Comments</a></li>
+                <li><a data-toggle="tab" href="#teams"><i class="fa fa-users " aria-hidden="true"></i>
+                        Teams</a></li>
             </ul>
 
             <div class="tab-content">
@@ -119,6 +121,44 @@
 
                         </div>
                     @endforeach
+
+                </div>
+                <div id="teams" class="tab-pane fade">
+                    <div class="navLinks">
+                        <a href="/teams/create/{{Auth::user()->id}}">
+                            <i class="fa fa-plus hdrIcon" aria-hidden="true"></i>Add New Team</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th>ID#</th>
+                                <th>Team Name</th>
+                                <th>Team Lead ID</th>
+                                <th>Last Updated</th>
+                                <th>Last User</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($teams as $team)
+                                <tr>
+                                    <td><a href="/teams/{{$team->id}}/edit"><i class="fa fa-edit"
+                                                                               aria-hidden="true"></i></a></td>
+                                    <td><a href="/teams/{{$team->id}}/delete"><i class="fa fa-trash-o"
+                                                                                 aria-hidden="true"></i></a></td>
+                                    <td>{{$team->id}}</td>
+                                    <td>{{$team->team_name}}</td>
+                                    <td>{{$team->team_lead_id}}</td>
+                                    <td>{{$team->updated_at}}</td>
+                                    <td>{{$team->last_user}}</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
 
                 </div>
             </div>

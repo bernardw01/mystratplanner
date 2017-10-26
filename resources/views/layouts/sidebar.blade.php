@@ -12,7 +12,7 @@
             <li><a href="/home">Home</a></li>
         @endif
         @if (Gate::forUser(Auth::user())->allows('access-user'))
-            <li><a href="{{route('myprofile')}}">My Profile</a></li>
+            <li><a href="/myprofile">My Profile</a></li>
         @endif
 
         @if (Gate::forUser(Auth::user())->allows('access-mngr'))

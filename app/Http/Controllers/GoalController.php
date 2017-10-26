@@ -25,10 +25,11 @@ class GoalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request, $id)
     {
         //
-        return view('goals.create');
+        //dd($id);
+        return view('goals.create', compact('id'));
     }
 
     /**

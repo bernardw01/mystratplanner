@@ -5,7 +5,7 @@
         <legend><i class="fa fa-tasks hdrIcon"></i>Create New Goal</legend>
 
         <form method="post" action="/goals" class="form-horizontal">
-            <input type="hidden" value="{{Auth::user()->id}}" id="user_id" name="user_id">
+            <input type="hidden" value="{{$id}}" id="user_id" name="user_id">
             {{csrf_field()}}
             <div class="form-group">
                 <label class="control-label col-sm-2" for="goal_title">Title:</label>
@@ -26,11 +26,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </div>
-            </div>
+
             <!-- Button (Double) -->
             <div class="form-group">
                 <label class="col-md-2 control-label" for="submitBtn"></label>

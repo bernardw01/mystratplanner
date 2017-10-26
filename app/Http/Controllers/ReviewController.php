@@ -22,10 +22,10 @@ class ReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request, $id)
     {
         //
-        return view('reviews.create');
+        return view('reviews.create',compact('id'));
     }
 
     /**
@@ -37,6 +37,23 @@ class ReviewController extends Controller
     public function store(Request $request)
     {
         //
+        //dd(request()->all());
+
+        $review = new Review;
+
+        $review->review_period_start = request('review_period_start');
+        $review->review_period_end = request('review_period_end');
+        $review->review_text = request('review_text');
+        $review->user_id = request('user_id');
+        $review->reviewer_id = request('reviewer_id');
+        $review->rating = request('rating');
+        $review->review_status = request('review_status');
+        $review->last_user = request('user_email');
+
+
+        $review->save();
+
+        return redirect('home');
     }
 
     /**
@@ -59,6 +76,7 @@ class ReviewController extends Controller
     public function edit(Review $review)
     {
         //
+        return view('reviews.show', compact('review'));
     }
 
     /**
@@ -71,6 +89,20 @@ class ReviewController extends Controller
     public function update(Request $request, Review $review)
     {
         //
+        $review->review_period_start = request('review_period_start');
+        $review->review_period_end = request('review_period_end');
+        $review->review_text = request('review_text');
+        $review->user_id = request('user_id');
+        $review->reviewer_id = request('reviewer_id');
+        $review->rating = request('rating');
+        $review->review_status = request('review_status');
+        $review->review_type = request('review_type');
+        $review->last_user = request('user_email');
+
+
+        $review->save();
+
+        return redirect('home');
     }
 
     /**
@@ -82,5 +114,8 @@ class ReviewController extends Controller
     public function destroy(Review $review)
     {
         //
+        $review->delete();
+        return redirect('home');
+
     }
 }

@@ -43,37 +43,61 @@
 
                         </div>
                     </div>
-
-
-                    <!-- Select Basic -->
+                    <!-- Text input-->
                     <div class="form-group">
-                        <label class="col-md-2 control-label" for="auth_level">Auth Level</label>
+                        <label class="col-md-2 control-label" for="address">Address</label>
                         <div class="col-md-10">
-                            <select id="auth_level" name="auth_level" class="form-control">
-                                <option @if ($user->auth_level = 0)
-                                        selected
-                                        @endif
-                                        value="3">Adminvalue="0">Guest
-                                </option>
-                                <option @if ($user->auth_level = 1)
-                                        selected
-                                        @endif
-                                        value="3">Adminvalue="1">User
-                                </option>
-                                <option @if ($user->auth_level = 2)
-                                        selected
-                                        @endif
-                                        value="3">Adminvalue="2">Manager
-                                </option>
-                                <option @if ($user->auth_level = 3)
-                                        selected
-                                        @endif
-                                        value="3">Admin
-                                </option>
-                            </select>
+                            <input id="address" name="address" type="text" placeholder="eg 123 East Street"
+                                   value="{{$user->address}}" class="form-control input-md">
                         </div>
                     </div>
-                    <!-- Button (Double) -->
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-2 control-label" for="city">city</label>
+                        <div class="col-md-10">
+                            <input id="city" name="city" type="text" placeholder="eg Boston"
+                                   value="{{$user->city}}" class="form-control input-md">
+                        </div>
+                    </div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-2 control-label" for="state">state</label>
+                        <div class="col-md-10">
+                            <input id="state" name="state" type="text" placeholder="Florida"
+                                   value="{{$user->state}}" class="form-control input-md">
+                        </div>
+                    </div>
+                @if (Gate::forUser(Auth::user())->allows('access-admin'))
+                    <!-- Select Basic -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="auth_level">Auth Level</label>
+                            <div class="col-md-10">
+                                <select id="auth_level" name="auth_level" class="form-control">
+                                    <option @if ($user->auth_level == 0)
+                                            selected
+                                            @endif
+                                            value="0">Guest
+                                    </option>
+                                    <option @if ($user->auth_level == 1)
+                                            selected
+                                            @endif
+                                            value="1">User
+                                    </option>
+                                    <option @if ($user->auth_level == 2)
+                                            selected
+                                            @endif
+                                            value="2">Manager
+                                    </option>
+                                    <option @if ($user->auth_level == 3)
+                                            selected
+                                            @endif
+                                            value="3">Admin
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                @endif
+                <!-- Button (Double) -->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="submitBtn"></label>
                         <div class="col-md-8">

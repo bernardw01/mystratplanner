@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use \App\Goal;
+use \App\Review;
+use \App\Comment;
 
 class UsersController extends Controller
 {
@@ -16,7 +19,12 @@ class UsersController extends Controller
     }
     public function show(User $user)
     {
-        return view('users.show', compact('user'));
+
+        $goals = Goal::where('user_id', $user->id)->get();
+        $reviews = Review::where('user_id', $user->id)->get();
+        $comments = Comment::where('user_id', $user->id)->get();
+
+        return view('users.show', compact('user', 'goals', 'reviews', 'comments'));
     }
 
     public function edit(user $user)
@@ -45,7 +53,7 @@ class UsersController extends Controller
         $user->zip = request('zip');
         $user->save();
 
-        return redirect('myprofile');
+        return redirect('home');
     }
 
     /**

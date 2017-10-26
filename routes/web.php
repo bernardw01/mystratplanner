@@ -15,10 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/myprofile', function() {
-    $user =  Auth::user();
-    return view('myprofile', compact('user'));
-})->name('myprofile');
+
+
+//Profile Routes
+Route::get('/myprofile', 'ProfileController@index');
 
 
 //User routes
@@ -30,15 +30,16 @@ Route::post('/users/{user}', 'UsersController@update');
 
 //Goal Routes
 Route::get('/goals', 'GoalController@index');
-Route::get('/goals/create', 'GoalController@create');
+//Route::get('/goals/create', 'GoalController@create');
+Route::get('/goals/create/{user}', 'GoalController@create');
 Route::get('/goals/{goal}/delete', 'GoalController@destroy');
 Route::get('/goals/{goal}/edit', 'GoalController@edit');
 Route::post('/goals/{goal}', 'GoalController@update');
 Route::post('/goals', 'GoalController@store');
 
-//Goal Routes
+//Review Routes
 Route::get('/reviews', 'ReviewController@index');
-Route::get('/reviews/create', 'ReviewController@create');
+Route::get('/reviews/create/{user}', 'ReviewController@create');
 Route::get('/reviews/{review}/delete', 'ReviewController@destroy');
 Route::get('/reviews/{review}/edit', 'ReviewController@edit');
 Route::post('/reviews/{review}', 'ReviewController@update');
@@ -46,7 +47,13 @@ Route::post('/reviews', 'ReviewController@store');
 
 
 //Comment Routes
-Route::resource('comments', 'CommentController');
+//Comment Routes
+Route::get('/comments', 'CommentController@index');
+Route::get('/comments/create/{user}', 'CommentController@create');
+Route::get('/comments/{comment}/delete', 'CommentController@destroy');
+Route::get('/comments/{comment}/edit', 'CommentController@edit');
+Route::post('/comments/{comment}', 'CommentController@update');
+Route::post('/comments', 'CommentController@store');
 
 
 //  resoure/create for a new entity

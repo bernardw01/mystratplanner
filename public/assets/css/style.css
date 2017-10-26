@@ -22,3 +22,20 @@ legend {
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
+.commentBody {
+    font-size: 14px;
+    font-weight: normal;
+    color: black;
+}
+
+.commentMediaObject {
+    margin-left: 20px;
+}
+
+.userHeading {
+    font-size: 12px;
+    font-weight: normal;
+    font-style: italic;
+    color: black;
+}

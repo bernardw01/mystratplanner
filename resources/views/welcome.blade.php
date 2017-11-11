@@ -35,7 +35,8 @@
             width: 100%;
             background: rgba(136, 136, 136, .75);
         }
-        .titleText{
+
+        .titleText {
             color: white;
             font-size: 84px;
             margin-top: 20px;

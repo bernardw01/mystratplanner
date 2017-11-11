@@ -16,17 +16,14 @@ Route::get('/', function () {
 });
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 //Profile Routes
 Route::get('/myprofile', 'ProfileController@index');
-
 
 //User routes
 Route::get('/users', 'UsersController@index');
 Route::get('/users/{user}', 'UsersController@show');
 Route::get('/users/{user}/edit', 'UsersController@show');
 Route::post('/users/{user}', 'UsersController@update');
-
 
 //Goal Routes
 Route::get('/goals', 'GoalController@index');
@@ -45,8 +42,6 @@ Route::get('/reviews/{review}/edit', 'ReviewController@edit');
 Route::post('/reviews/{review}', 'ReviewController@update');
 Route::post('/reviews', 'ReviewController@store');
 
-
-//Comment Routes
 //Comment Routes
 Route::get('/comments', 'CommentController@index');
 Route::get('/comments/create/{user}', 'CommentController@create');
@@ -55,11 +50,7 @@ Route::get('/comments/{comment}/edit', 'CommentController@edit');
 Route::post('/comments/{comment}', 'CommentController@update');
 Route::post('/comments', 'CommentController@store');
 
-//Team Routes
-Route::get('/teams/create/{user}', 'TeamController@create');
-Route::post('/teams', 'TeamController@store');
-
-//  resoure/create for a new entity
+// resoure/create for a new entity
 // /resource to view all records for a resource
 // GET resource/{id}/edit to edit a post
 // GET resource/{id} to retrieve a resource
